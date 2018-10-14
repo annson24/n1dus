@@ -29,7 +29,7 @@ Keys can be extracted using [tesnos' kezplez](https://github.com/tesnos/kezplez-
 * Required firmware version are always ignored.
 
 
-## Installing files over 4GB
+## Installing files over 4GB on FAT32
 * Split files using either AnalogMan151 [splitNSP](https://github.com/AnalogMan151/splitNSP), or my slightly modified version in tools/splitFile.py (will handle both XCI and NSP file extensions, and set the archive bit for you under windows). 
 * Make sure the generated folder has the right extension (XCI or NSP), and has the archive bit set ("Folder is ready for archiving" under windows). 
 * The generated folder should show up under n1dus as regular NSP or XCI file.
