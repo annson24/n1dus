@@ -13,13 +13,14 @@ all:  link
 
 
 link:
-
-	$(CC) $(CFLAGS) -c $(SRCS_DIR)/wrap-link.c -o $(BUILD_DIR)/wrap-link.o
-	$(CC) $(CFLAGS) -c $(SRCS_DIR)/test.c -o $(BUILD_DIR)/test-link.o
+	mkdir bin
+	$(CC) $(CFLAGS) -c $(SRCS_DIR)/wrap.c -o $(BUILD_DIR)/wrap.o
+	$(CC) $(CFLAGS) -c $(SRCS_DIR)/test.c -o $(BUILD_DIR)/test.o
 	$(CC) $(LDFLAGS) -Wl,-wrap=fopen -Wl,-wrap=fclose -Wl,-wrap=fread -Wl,-wrap=fwrite \
 					 -Wl,-wrap=fseek -Wl,-wrap=fseeko \
 					 -Wl,-wrap=ftell -Wl,-wrap=ftello \
-					 $(BUILD_DIR)/test-link.o $(BUILD_DIR)/wrap-link.o -o $(BUILD_DIR)/test-link-bin
+					 $(BUILD_DIR)/test.o $(BUILD_DIR)/wrap.o -o $(BUILD_DIR)/test
 
 clean:
-	rm -rf bin/*
+	rm -rf bin/* \
+	rmdir bin
